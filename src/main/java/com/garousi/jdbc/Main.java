@@ -1,5 +1,6 @@
 package com.garousi.jdbc;
 
+import com.garousi.jdbc.domains.Customer;
 import com.garousi.jdbc.domains.Product;
 
 import java.sql.SQLException;
@@ -9,19 +10,20 @@ public class Main {
     public static void main(String[] args) {
 
         ProductComponent productComponent = new ProductComponent();
-        try {
-            if(productComponent.tryConnection()) {
-                System.out.println("Try to connect with DriverManager");
-                System.out.println("****  SUCCESS  ****");
+        CustomerComponent customerComponent = new CustomerComponent();
 
-                List<Product> products = productComponent.findAll();
-                System.out.println(products.size());
-            } else {
-                System.out.println("Try to connect with DriverManager");
-                System.out.println("FAILED");
-            }
+        try {
+            List<Product> products = null;
+            List<Customer> customers = null;
+
+//            customers = customerComponent.findAll();
+//            System.out.println(customers.size());
+            products = productComponent.findAll();
+//            products = productComponent.findProductByPrice(50.00, 55.0);
+//            Product product = productComponent.findByCode("S18_1589");
+            System.out.println(products.size());
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 }

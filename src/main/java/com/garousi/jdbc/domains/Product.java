@@ -11,24 +11,17 @@ public class Product {
     private Double buyPrice;
     private Double msrp;
 
-    public static Product createProduct(String code, String name, String line,
-                                         String scale, String vendor, String description,
-                                         Integer quantityInStock, Double buyPrice, Double msrp
-    ) {
-        Product product = new Product();
-        product.setCode(code);
-        product.setName(name);
-        product.setLine(line);
-        product.setScale(scale);
-        product.setVendor(vendor);
-        product.setDescription(description);
-        product.setQuantityInStock(quantityInStock);
-        product.setBuyPrice(buyPrice);
-        product.setMsrp(msrp);
-
-        return product;
+    public Product(String code, String name, String line, String scale, String vendor, String description, Integer quantityInStock, Double buyPrice, Double msrp) {
+        this.code = code;
+        this.name = name;
+        this.line = line;
+        this.scale = scale;
+        this.vendor = vendor;
+        this.description = description;
+        this.quantityInStock = quantityInStock;
+        this.buyPrice = buyPrice;
+        this.msrp = msrp;
     }
-
 
     public String getCode() {
         return code;
