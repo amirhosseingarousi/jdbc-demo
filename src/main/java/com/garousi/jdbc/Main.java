@@ -1,6 +1,9 @@
 package com.garousi.jdbc;
 
+import com.garousi.jdbc.domains.Product;
+
 import java.sql.SQLException;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -11,7 +14,8 @@ public class Main {
                 System.out.println("Try to connect with DriverManager");
                 System.out.println("****  SUCCESS  ****");
 
-                productComponent.printProductList();
+                List<Product> products = productComponent.findAll();
+                System.out.println(products.size());
             } else {
                 System.out.println("Try to connect with DriverManager");
                 System.out.println("FAILED");
